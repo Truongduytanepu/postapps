@@ -52,7 +52,10 @@ class TutorialViewController: UIViewController, UICollectionViewDataSource, UICo
         }
         
         private func routeToAuthNavigation() {
-            print("Go to login screen")
+            let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let loginVC = mainStoryboard.instantiateViewController(withIdentifier: "LoginVC") as! LoginViewController
+            loginVC.modalPresentationStyle = .fullScreen
+            self.present(loginVC, animated: true)
         }
         
         // MARK: UICollectionViewDataSource
@@ -74,7 +77,9 @@ class TutorialViewController: UIViewController, UICollectionViewDataSource, UICo
                     self.routeToAuthNavigation()
                 } else {
                     self.currentPage = indexPath.row + 1
-                    collectionView.scrollToItem(at: IndexPath(item: self.currentPage, section: 0), at: .centeredHorizontally, animated: true)
+                    self.collectionView.isPagingEnabled = false
+                    self.collectionView.scrollToItem(at: IndexPath(row: self.currentPage, section: 0), at: .centeredHorizontally, animated: true)
+                    self.collectionView.isPagingEnabled = true
                 }
             }
             return cell

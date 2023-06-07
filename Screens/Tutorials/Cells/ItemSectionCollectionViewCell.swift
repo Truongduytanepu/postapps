@@ -27,7 +27,8 @@ class ItemSectionCollectionViewCell: UICollectionViewCell {
         nextBtn.layer.cornerRadius = 5
         nextBtn.clipsToBounds = true
     }
-    @IBAction func handleButtonAction(_ sender: Any) {
+    @IBAction func handleButtonAction(_ sender: UIButton) {
+        
         nextCallback?()
     }
     override func prepareForReuse() {

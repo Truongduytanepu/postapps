@@ -40,7 +40,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Button"/>
                                 <connections>
-                                    <action selector="handleButtonAction:" destination="gTV-IL-0wX" eventType="touchUpInside" id="oGC-TB-qrb"/>
+                                    <action selector="handleButtonAction:" destination="gTV-IL-0wX" eventType="touchUpInside" id="6Bi-gY-VWv"/>
                                 </connections>
                             </button>
                         </subviews>
