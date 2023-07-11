@@ -1,2 +1,8 @@
 ${PODS_ROOT}/Target Support Files/Pods-Ex1/Pods-Ex1-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
+${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework
+${BUILT_PRODUCTS_DIR}/ESTabBarController-swift/ESTabBarController_swift.framework
+${BUILT_PRODUCTS_DIR}/KeychainSwift/KeychainSwift.framework
+${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework
+${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework
+${BUILT_PRODUCTS_DIR}/XLPagerTabStrip/XLPagerTabStrip.framework

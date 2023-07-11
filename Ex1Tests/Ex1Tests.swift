@@ -10,7 +10,7 @@
 //import Nimble
 //import Mockingbird
 //
-////@testable import AddLibrary
+//@testable import Ex1
 //
 //class TestEx1Test: QuickSpec {
 //        override class func spec() {
@@ -19,16 +19,16 @@
 //                 Bước 1.  Tạo instance của LoginPresenter
 //                 */
 //                var sut:LoginPresenter!
-//                
+//
 //                var loginDisplayMock:LoginDisplayMock!
 //
 //                /**Sẽ chạy trước test case*/
-//                
+//
 //                beforeEach {
 //                    loginDisplayMock = mock(LoginDisplay.self)
 //                    sut = LoginPresenterImpl(controller: loginDisplayMock)
 //                }
-//                
+//
 //                /**
 //                 Group lại các test case
 //                 **/
@@ -38,15 +38,15 @@
 //                        /**
 //                         input : username rỗng
 //                         action. : .login(username,password)
-//                         
+//
 //                        */
-//                        
+//
 //                        //input
 //                        let username = ""
-//                        
+//
 //                        //action
 //                        sut.login(username: username, password: "Test")
-//                        
+//
 //                        ///expect
 //                        verify(loginDisplayMock.validateFailure(messing: "User is required")).wasCalled()
 //                    }
