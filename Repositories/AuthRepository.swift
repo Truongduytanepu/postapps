@@ -1,60 +1,51 @@
-////
-////  AuthRepository.swift
-////  Ex1
-////
-////  Created by Trương Duy Tân on 05/06/2023.
-////
 //
-//import Foundation
-//import Alamofire
-//protocol AuthAPISerivce{
-//    func login(ussername: String,
-//               password:String,
-//               success:((LoginEntity) -> Void)?,
-//               failure: ((String) ->Void)?)
-//}
-//class AuthAPISerivceImpl: AuthAPISerivce{
-//    func login(ussername: String,
-//               password:String,
-//               success:((LoginEntity) -> Void)?,
-//               failure: ((String) ->Void)?) {
-//        AF.request("https://learn-api-3t7z.onrender.com/login",
-//                   method: .post,
-//                   parameters: ["ussername": ussername,
-//                                "password": password],
-//                   encoder: JSONParameterEncoder.default)
-//                    .validate(statusCode: 200..<300)
-//                   .responseDecodable(of: LoginEntity.self) { response in
-//                       switch response.result{
-//                       case .success(let entity):
-//                            success?(entity)
-//                     case .failure(let entity):
-//                        failure?(error?.failureReason)
-//                       }
-//                    }
+//  AuthRepository.swift
+//  Ex1
 //
-//  }
-//}
+//  Created by Trương Duy Tân on 05/06/2023.
 //
-//protocol AuthRespository{
-//    func login(ussername: String,
-//               password:String,
-//               success:((LoginEntity) -> Void)?,
-//               failure: ((String) ->Void)?)
-//}
-//
-//                   class AuthRespositoryImpl: AuthRespository{
-//            var authApiService: AuthAPISerivce
-//
-//            init(authApiService: AuthAPISerivce) {
-//                self.authApiService = authApiService
-//            }
-//
-//            func login(ussername: String,
-//                       password:String,
-//                       success:((LoginEntity) -> Void)?,
-//                       failure: ((String) ->Void)?){
-//                //        authApiService.
-//            }
-//        }
-//
+
+import Foundation
+
+// thực hiện yêu cầu thông qua API
+protocol AuthRepository {
+    /**
+     
+     */
+    func login(username: String,
+               password: String,
+               success: ((LoginEntity) -> Void)?,
+               failure: ((APIError?) -> Void)?)
+    
+    func register(username: String,
+                  nickname: String,
+                  password: String,
+                  confirmPassword: String,
+                  success: ((LoginEntity) -> Void)?,
+                  failure: ((APIError?) -> Void)?)
+}
+
+class AuthRepositoryImpl: AuthRepository {
+    
+    var authAPIService: AuthAPIService
+    
+    init(authAPIService: AuthAPIService) {
+        self.authAPIService = authAPIService
+    }
+    
+    func login(username: String,
+               password: String,
+               success: ((LoginEntity) -> Void)?,
+               failure: ((APIError?) -> Void)?) {
+        authAPIService.login(username: username, password: password, success: success, failure: failure)
+    }
+    
+    func register(username: String,
+                  nickname: String,
+                  password: String,
+                  confirmPassword: String,
+                  success: ((LoginEntity) -> Void)?,
+                  failure: ((APIError?) -> Void)?) {
+        authAPIService.register(username: username, nickname: nickname, password: password, confirmPassword: confirmPassword, success: success, failure: failure)
+    }
+}

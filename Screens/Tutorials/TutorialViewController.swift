@@ -74,6 +74,7 @@ class TutorialViewController: UIViewController, UICollectionViewDataSource, UICo
                 guard let self = self else { return }
                 if indexPath.row + 1 == 3 {
                     // go to login
+                    UserDefaultService.shared.conpletedTutorial = true
                     self.routeToAuthNavigation()
                 } else {
                     self.currentPage = indexPath.row + 1

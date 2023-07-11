@@ -12,48 +12,6 @@ import Foundation
 import Swift
 import UIKit
 
-private let mkbGenericStaticMockContext = Mockingbird.GenericStaticMockContext()
-
-// MARK: - Mocked LoginDisplay
-public final class LoginDisplayMock: Ex1.LoginDisplay, Mockingbird.Mock {
-  typealias MockingbirdSupertype = Ex1.LoginDisplay
-  public static let mockingbirdContext = Mockingbird.Context()
-  public let mockingbirdContext = Mockingbird.Context(["generator_version": "0.20.0", "module_name": "Ex1"])
-
-  fileprivate init(sourceLocation: Mockingbird.SourceLocation) {
-    self.mockingbirdContext.sourceLocation = sourceLocation
-    LoginDisplayMock.mockingbirdContext.sourceLocation = sourceLocation
-  }
-
-  // MARK: Mocked `validateFailure`(`messing`: String)
-  public func `validateFailure`(`messing`: String) -> Void {
-    return self.mockingbirdContext.mocking.didInvoke(Mockingbird.SwiftInvocation(selectorName: "`validateFailure`(`messing`: String) -> Void", selectorType: Mockingbird.SelectorType.method, arguments: [Mockingbird.ArgumentMatcher(`messing`)], returnType: Swift.ObjectIdentifier((Void).self))) {
-      self.mockingbirdContext.recordInvocation($0)
-      let mkbImpl = self.mockingbirdContext.stubbing.implementation(for: $0)
-      if let mkbImpl = mkbImpl as? (String) -> Void { return mkbImpl(`messing`) }
-      if let mkbImpl = mkbImpl as? () -> Void { return mkbImpl() }
-      for mkbTargetBox in self.mockingbirdContext.proxy.targets(for: $0) {
-        switch mkbTargetBox.target {
-        case .super:
-          break
-        case .object(let mkbObject):
-          guard var mkbObject = mkbObject as? MockingbirdSupertype else { break }
-          let mkbValue: Void = mkbObject.`validateFailure`(messing: `messing`)
-          self.mockingbirdContext.proxy.updateTarget(&mkbObject, in: mkbTargetBox)
-          return mkbValue
-        }
-      }
-      if let mkbValue = self.mockingbirdContext.stubbing.defaultValueProvider.value.provideValue(for: (Void).self) { return mkbValue }
-      self.mockingbirdContext.stubbing.failTest(for: $0, at: self.mockingbirdContext.sourceLocation)
-    }
-  }
-
-  public func `validateFailure`(`messing`: @autoclosure () -> String) -> Mockingbird.Mockable<Mockingbird.FunctionDeclaration, (String) -> Void, Void> {
-    return Mockingbird.Mockable<Mockingbird.FunctionDeclaration, (String) -> Void, Void>(context: self.mockingbirdContext, invocation: Mockingbird.SwiftInvocation(selectorName: "`validateFailure`(`messing`: String) -> Void", selectorType: Mockingbird.SelectorType.method, arguments: [Mockingbird.resolve(`messing`)], returnType: Swift.ObjectIdentifier((Void).self)))
-  }
-}
-
-/// Returns a concrete mock of `LoginDisplay`.
-public func mock(_ type: Ex1.LoginDisplay.Protocol, file: StaticString = #file, line: UInt = #line) -> LoginDisplayMock {
-  return LoginDisplayMock(sourceLocation: Mockingbird.SourceLocation(file, line))
-}
+// No mocks used in 'Ex1Tests'. Mockingbird is configured to only generate mocks for types that are
+// explicitly initialized in your tests with `mock(SomeType.self)`. For more information, see 'Thunk
+// Pruning' in the README.
